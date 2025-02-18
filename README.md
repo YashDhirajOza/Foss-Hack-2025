@@ -15,7 +15,9 @@ The AI-Powered Chemical Reaction Optimizer is an open-source platform designed t
 ✅ Visualize key insights in an interactive Streamlit dashboard.
 
 🛠️ Technology Stack (100% Open Source)
+
 Component	Open-Source Technology (License)
+
 |ML Model	      |PyTorch (MIT), RDKit (BSD), Scikit-Learn
 ------------------------------------------------------
 |Chatbot NLP	  |Hugging Face Transformers (Apache 2.0), SpaCy (MIT)
