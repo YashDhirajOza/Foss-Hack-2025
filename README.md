@@ -1,5 +1,6 @@
-🧪 AI-Powered Chemical Reaction Optimizer 
-📢 Hackathon Project for FOSS-Hack-2025
+🧪 AI-Powered Chemical Reaction Optimizer .
+
+📢 Hackathon Project for FOSS-Hack-2025.
 
 The AI-Powered Chemical Reaction Optimizer is an open-source platform designed to revolutionize chemical R&D, industrial process optimization, and laboratory safety using machine learning and AI-driven automation. It combines chemical reaction prediction, real-time process optimization, and an AI-powered safety assistant, making it a powerful tool for chemists, researchers, and industrial engineers. This solution helps pharmaceutical companies, material scientists, and chemical industries optimize reaction conditions, reduce waste, improve safety compliance, and accelerate innovation.
 
@@ -26,8 +27,10 @@ Component	Open-Source Technology (License)
 |Simulation	    |ChemPy (BSD), SciPy (BSD)
 ------------------------------------------------------
 |Deployment	    |Docker (Apache 2.0), NGINX (BSD)
+-----------------------------------------------------
 
-🚀 Key Features
+🚀 #Key Features
+
 🔬 1. AI-Powered Reaction Prediction
 ✅ Data Source: Uses PubChem Reaction Dataset (open data).
 ✅ ML Model: Trained on USPTO public reaction datasets with RDKit-based featurization.
