@@ -1,24 +1,34 @@
+"""Module for handling application logging."""
+
 import logging
 from datetime import datetime
+from pathlib import Path
 
-def setup_logger():
-    logger = logging.getLogger('ChemAI')
+def setup_logger(name: str, log_dir: str = "logs") -> logging.Logger:
+    """Configure and return a logger instance.
+    
+    Args:
+        name: Logger name
+        log_dir: Directory for log files
+        
+    Returns:
+        Configured logger instance
+    """
+    log_path = Path(log_dir)
+    log_path.mkdir(exist_ok=True)
+    
+    logger = logging.getLogger(name)
     logger.setLevel(logging.INFO)
     
-    # File handler
-    fh = logging.FileHandler(f'logs/chem_ai_{datetime.now().strftime("%Y%m%d")}.log')
-    fh.setLevel(logging.INFO)
+    formatter = logging.Formatter(
+        '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+    )
     
-    # Console handler
-    ch = logging.StreamHandler()
-    ch.setLevel(logging.WARNING)
+    file_handler = logging.FileHandler(
+        log_path / f"{name}_{datetime.now():%Y%m%d}.log",
+        encoding='utf-8'
+    )
+    file_handler.setFormatter(formatter)
     
-    # Formatter
-    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-    fh.setFormatter(formatter)
-    ch.setFormatter(formatter)
-    
-    logger.addHandler(fh)
-    logger.addHandler(ch)
-    
+    logger.addHandler(file_handler)
     return logger

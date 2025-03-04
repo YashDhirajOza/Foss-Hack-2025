@@ -484,31 +484,6 @@ with tab2:
             fig = go.Figure()
             fig.add_trace(go.Scatter(
                 x=opt_result['temp_curve']['temps'],
-
-# Process Optimization Tab
-with tab2:
-    st.header("Process Optimization")
-    
-    col1, col2 = st.columns(2)
-    with col1:
-        reactants = st.text_input("Reactants (SMILES)", "C=O, [H]", key="opt_reactants")
-        params = {
-            'temp_min': st.number_input("Min Temperature (°C)", 0, 200, 25),
-            'temp_max': st.number_input("Max Temperature (°C)", 0, 300, 150)
-        }
-    
-    if st.button("Optimize Process", type="primary"):
-        opt_result = mock_process_optimization(reactants.split(","), params)
-        
-        with col2:
-            st.subheader("Optimization Results")
-            st.metric("Optimal Temperature", f"{opt_result['optimal_temp']:.1f}°C")
-            st.metric("Maximum Yield", f"{opt_result['max_yield']:.1f}%")
-            
-            # Temperature vs Yield curve
-            fig = go.Figure()
-            fig.add_trace(go.Scatter(
-                x=opt_result['temp_curve']['temps'],
                 y=opt_result['temp_curve']['yields'],
                 mode='lines+markers',
                 name='Yield Curve'
@@ -520,7 +495,7 @@ with tab2:
             )
             st.plotly_chart(fig, use_container_width=True)
 
-# Modified Safety Assistant Tab
+# Safety Assistant Tab
 with tab3:
     st.header("Chemical Safety Advisor")
     chemical = st.selectbox("Select Chemical", list(CHEMICALS_DATABASE.keys()))
@@ -560,5 +535,4 @@ def calculate_reaction_costs(chem1, amt1, chem2, amt2, conditions):
         'operation': 30,
         'total': 180
     }
-    
-    
+
